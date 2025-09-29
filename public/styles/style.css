@@ -1,0 +1,168 @@
+body{
+    padding: 20px 0;
+    text-align: center;
+    background-color: #FDEBD0;
+    font-family: "Bellefair", serif;
+    font-size: 35px;
+}
+
+/* Styling random drink generate button */
+.btn{
+    background-color: #FDEBD0;
+    border: 2px solid #DC143C;
+    border-radius: 4px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: #DC143C;
+    font-size: 20px;
+    transition-duration: 0.3s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover{
+    background-color: #DC143C;
+    color: #FDEBD0;
+}
+
+.btn:active{
+    background-color: #af3e3e;
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
+}
+
+/* Styling dynamic tab for languages */
+/* Styling tab buttons */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  font-size: 3vmin;
+  padding: .5em 1em;
+  background: #FDEBD0;
+  color: #DC143C;
+  border: 2px solid #DC143C;
+  margin: .1em;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+  box-shadow: 0 0 0 #BEE3F8;
+  transform: translateY(0);
+}
+
+.tab-button:first-of-type{
+  border-radius: .5em 0 0 .5em;
+}
+
+.tab-button:last-of-type{
+  border-radius: 0 .5em .5em 0;
+}
+
+.tab-buttons:hover .tab-button{
+  color: #DC143C;
+}
+
+.tab-buttons:hover .tab-button:hover{
+  background: rgb(220, 20, 60);
+  border: 0px;
+  color: #fff;
+  box-shadow: 0 0 0.8em 0 rgba(196, 62, 82, 0.8);
+  transform: translateY(-.2em);
+}
+
+/* Styling tab contents */
+.tab-content {
+  font-size: 30px;
+  background-color: #FDEBD0;
+  color: rgb(220, 20, 60);
+  display: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: rgb(220, 20, 60) 0px 10px 20px, rgb(244, 35, 77) 0px 6px 6px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Styling 'Ingredients' and 'Measures' list */
+
+#drinkContainer{
+    width: 65%;
+    margin: 0 auto;
+    padding: 50px 0;
+
+}
+
+.ingredient-container{
+    background-color: #FDEBD0;
+    color: rgb(220, 20, 60);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgb(220, 20, 60) 0px 10px 20px, rgb(244, 35, 77) 0px 6px 6px;   
+
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+.ingredient{
+    text-align: left;
+}
+
+
+.measure{
+    text-align: right;
+}
+
+
+.ingredient, .measure{
+    flex: 1;
+}
+
+
+.ingredient ul, .measure ul{
+    padding-left: 1rem;
+    list-style-type: none;
+}
+
+
+.ingredient-item{
+    position: relative;
+    padding-right: 12px;
+    margin-bottom: 8px;
+}
+
+.ingredient-item::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 1px;
+    border-top: 1px dashed #af3e3e;
+}
+
+.measure-item{
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 8px;
+}
+
+.measure-item::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 1px;
+    border-top: 1px dashed #af3e3e;
+}
+
+footer{
+  display: block;
+}

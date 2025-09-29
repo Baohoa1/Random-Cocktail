@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Italiana&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Today's Cocktail</title>
+</head>
+<body> 
+    <h1>What Cocktail for Today?</h1>
+
+    <!-- Create a button to generate random drink -->
+    <form action="/" method="post" class="button">
+        <button class="btn" type="submit" value="drink" name="drink" style="vertical-align: middle; ">           
+                    <span>Click to Generate!</span>       
+        </button>
+    </form>
+
+    
+    <div id="drinkContainer" class="hidden">
+        <% if(locals.drink) { %>    
+                <!-- Display generated image under <img> tag -->
+                <img src="<%= drink.strDrinkThumb %>" alt="Cocktail" style="width:50%; border-radius: 50%;"><br>
+
+                <h2><%= drink.strDrink %> </h2>
+        
+                <!-- Dynamic tab for the user to switch to preferred language -->
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab-target="#tab1-content">🇺🇸 Instruction</button>
+                        <button class="tab-button" data-tab-target="#tab2-content">🇪🇸 Instrucción</button>
+                        <button class="tab-button" data-tab-target="#tab3-content">🇹🇫 La consigne</button>
+                    </div>
+                    <div class="tab-content-container">
+                        <div id="tab1-content" class="tab-content active">
+                            <p><%=drink.strInstructions%></p>
+                        </div>
+                        <div id="tab2-content" class="tab-content">
+                            <p><%=drink.strInstructionsES%></p>
+                        </div>
+                        <div id="tab3-content" class="tab-content">
+                            <p><%=drink.strInstructionsFR%></p>
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div class="ingredient-container">
+                <div class="ingredient">
+                    <strong>Ingredients:</strong><br>
+                    <ul>
+                        <!-- Loop through the "Ingredient" and "Measures" data and display them in a list type -->
+                        <% ingredients.forEach((ingredient, index) => { %>
+                            
+                            <% if(index < ingredients.length) { %>
+                                <div class="ingredient-item"><li>🍸<%= ingredient %></li></div>
+                            <% } %>
+                        <% }) %>    
+                    </ul>
+                </div>
+                
+                <div class="measure">
+                    <strong>Measures:</strong><br>
+                    <ul>
+                        <% measures.forEach((measure, index) => { %>
+                            
+                            <% if(index < measures.length ) { %>
+                                <div class="measure-item"><li><%= measure %>🧊</li></div>
+                            <% } %>
+                        <% }) %>
+                    </ul>  
+                </div>
+               
+                    <%} else {%> 
+                    <!-- <h2>Click the button!</h2> -->
+                    <% } %>
+            </div>
+                
+            
+
+            
+            
+    </div>
+
+    <footer>
+        <p>Copyright @ 2025 - All Rights Reserved || Created and Designed by Le Bao Hoa</p>
+    </footer>
+    
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll(".tab-button");
+            
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.tab-button').forEach(item => item.classList.remove('active'));
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                    // Add active class to the clicked tab
+                    tab.classList.add('active');
+
+                    // Find the corresponding tab content
+                    const targetID = tab.dataset.tabTarget;
+                    const targetContent = document.querySelector(targetID);
+
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                        handleEmptyContent(targetContent);
+                    }
+                });
+            });
+
+            
+        });
+</script>
+</body>
+</html>
