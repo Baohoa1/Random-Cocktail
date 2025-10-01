@@ -1,0 +1,1 @@
+This website generates random cocktails, along with their corresponding recipes. I had integrated data from [thecocktaildb](https://www.thecocktaildb.com/) free API by using the Express/Node.js platform, with the Axios client.
