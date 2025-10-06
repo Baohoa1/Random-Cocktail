@@ -21,3 +21,11 @@ Below this will be the drink's recipe. There is a dynamic tab for user to change
 
 <img width="2873" height="1531" alt="image" src="https://github.com/user-attachments/assets/d2f45302-8402-41a9-a7f3-79e6154ce3f6" />
 
+### How to install
+
+For this project to work in the local environment, please follow these steps to install:
+`git clone https://github.com/Baohoa1/Random-Cocktail.git` <br/>
+`cd Random-Cocktail` <br/>
+`npm install` <br/>
+`npm install -g nodemon` <br/>
+After that, run `nodemon index.js` in the terminal to run this project.
