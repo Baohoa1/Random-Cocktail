@@ -2,12 +2,12 @@ import express from "express";
 import axios from "axios";
 
 
-// Set up application 
+// アプリセットアップ
 const app = express();
-app.set("view engine", "ejs"); // Use EJS to process template files under the 'views' folder
-const port = 3000; // Create a port for hosting the website
-const API_URL = "http://www.thecocktaildb.com/api/json/v1/1/random.php"; // Create a constant with the API URL
-app.use(express.urlencoded({ extended: true })); // Parse URL encoded data from incoming requests
+app.set("view engine", "ejs"); //EJSで「view」フォルダーのファイル経路。
+const port = 3000; // ウェブをホストするのポート。
+const API_URL = "http://www.thecocktaildb.com/api/json/v1/1/random.php"; // APIのURLの定数を作る。
+app.use(express.urlencoded({ extended: true })); // 受信リクエストからURLエンコードされたのデータを解析する
 
 
 // const apiKey = "1";
