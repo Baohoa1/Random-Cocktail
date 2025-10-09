@@ -13,23 +13,23 @@ app.use(express.urlencoded({ extended: true })); // 受信リクエストからU
 // const apiKey = "1";
 
 
-app.use(express.static("public")); // Make all the file from the 'public' folder accessible to the client's browser via HTTP requests
+app.use(express.static("public")); //「public」フォルダのすべてのファイルをHTTPリクエストの経由でクライアントのブラウザでアクセスできるようにします。
 
-// GET endpoint to render the 'index.ejs' file to user's browser
+// GETエンドポイントは：「index.js」がブラウザにレンダリングされる。
 app.get("/", (req, res) => {    
     res.render("index.ejs");
 })
 
 
-// POST endpoint to acquire data from the API
+// POSTエンドポイントは：APIのデータを取得される。
 app.post("/", async (req, res) => {
     try{
-        const result = await axios.get(API_URL); // Fetches data from API URL when get the response from the client's side
-        const drink = result.data.drinks[0]; // Access the first element of the 'drinks' array
+        const result = await axios.get(API_URL); // クライアントのブラウザ側から応答を受け取るの際、APIのURLをアクセスする。
+        const drink = result.data.drinks[0]; // 「drink」配列の最初の要素にアクセスする。
 
         
 
-        // Loop through the "ingredients" array and display them to user's browser
+        // 「材料」配列をループして、ユーザーのブラウザにデータを表示する。
         const ingredients = [];
         for(let i = 1; i<15; i++){
             const ingredient = drink[`strIngredient${i}`];
@@ -38,7 +38,7 @@ app.post("/", async (req, res) => {
             }
         }
 
-        // Same process as "ingredients" component, but for "measures" component
+        // 「測定」配列をループして、ユーザーのブラウザにデータを表示する。
         const measures = [];
         for(let j = 1; j<15; j++){
             const measure = drink[`strMeasure${j}`];
@@ -47,12 +47,12 @@ app.post("/", async (req, res) => {
             }
         }
 
-        // Render acquired data to index.ejs
+        // 取得された三つのデータを「index.ejs」にレンダリングする。
         res.render("index.ejs", { drink, ingredients, measures });
 
     } catch (error) {
-        console.log("Failed to make request:", error.message); // If there is any error, display to the terminal
-        res.status(500).send("Failed to fetch data. Please try again."); // This is the message send to the browser for user
+        console.log("Failed to make request:", error.message); // エラーが出たら、ターミナルの画面をエラーメッセージを表示します。
+        res.status(500).send("Failed to fetch data. Please try again."); // ユーザーのブラウザにこのエラーメッセージを表示します。
     }
 });
 
