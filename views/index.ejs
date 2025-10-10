@@ -12,7 +12,7 @@
 <body> 
     <h1>What Cocktail for Today?</h1>
 
-    <!-- Create a button to generate random drink -->
+    <!-- ランダムカクテル選べるのボタンを作る -->
     <form action="/" method="post" class="button">
         <button class="btn" type="submit" value="drink" name="drink" style="vertical-align: middle; ">           
                     <span>Click to Generate!</span>       
@@ -22,12 +22,12 @@
     
     <div id="drinkContainer" class="hidden">
         <% if(locals.drink) { %>    
-                <!-- Display generated image under <img> tag -->
+                <!-- <img>のタグでAPIの画像のデータを表示する。 -->
                 <img src="<%= drink.strDrinkThumb %>" alt="Cocktail" style="width:50%; border-radius: 50%;"><br>
 
                 <h2><%= drink.strDrink %> </h2>
         
-                <!-- Dynamic tab for the user to switch to preferred language -->
+                <!-- 言語選択のダイナミックタブを作成。-->
                 <div class="tabs-container">
                     <div class="tab-buttons">
                         <button class="tab-button active" data-tab-target="#tab1-content">🇺🇸 Instruction</button>
@@ -52,7 +52,7 @@
                 <div class="ingredient">
                     <strong>Ingredients:</strong><br>
                     <ul>
-                        <!-- Loop through the "Ingredient" and "Measures" data and display them in a list type -->
+                        <!-- 「材料」と「計量」のデータをループし、リスト形式で表示する。-->
                         <% ingredients.forEach((ingredient, index) => { %>
                             
                             <% if(index < ingredients.length) { %>
@@ -96,15 +96,15 @@
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
+                    //　「active」のクラスついているのタグを削除します。
                     document.querySelectorAll('.tab-button').forEach(item => item.classList.remove('active'));
-                    // Hide all tab content
+                    // タブの内容を非表示にする
                     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-                    // Add active class to the clicked tab
+                    // 選んでいるのタブを「active」クラスを入り込みます。
                     tab.classList.add('active');
 
-                    // Find the corresponding tab content
+                    // 対応するタブコンテンツを見つける。
                     const targetID = tab.dataset.tabTarget;
                     const targetContent = document.querySelector(targetID);
 
