@@ -65,6 +65,8 @@ Design - Figma<br/>
 <img width="2854" height="1614" alt="Screenshot 2025-10-03 205017" src="https://github.com/user-attachments/assets/fda2a2a3-5c66-413f-bbd5-997a9d2e4f85" />
 
 
+
+ランダムカクテルを作成した後、そのカクテルのレシピをこの下に表示されています。
 <img width="2873" height="1531" alt="image" src="https://github.com/user-attachments/assets/d2f45302-8402-41a9-a7f3-79e6154ce3f6" />
 
 ### インストール方法
