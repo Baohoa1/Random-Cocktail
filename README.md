@@ -23,21 +23,21 @@ Axiosを利用したAPI通信を実装し、フロントエンドとバックエ
 約3ヶ月（業務後や週末の時間を活用して制作）
 
 ### 担当領域
-* <ins>企画・設計<br/>
+#### 企画・設計<br/>
 - 情報設計<br/>
 - UI/UX設計<br/>
 
-* <ins>デザイン<br/>
+#### デザイン<br/>
 - 視認性を意識した画面設計<br/>
 - レイアウト設計<br/>
 - ビジュアルデザイン<br/>
 
-* <ins>実装<br/>
+#### 実装<br/>
 - APIデータ取得処理<br/>
 - 非同期通信実装<br/>
 - フロントエンド／バックエンド実装<br/>
 
-* <ins>使用技術<br/>
+#### 使用技術<br/>
 Frontend - HTML / CSS / Bootstrap<br/>
 Backend - Node.js / Express.js<br/>
 API Communication - Axios<br/>
